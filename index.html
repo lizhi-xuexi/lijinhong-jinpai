@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>金牌月嫂李金红｜十余年母婴护理经验</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei","PingFang SC",sans-serif;}
+        body{background:#fff8f8;color:#333;line-height:1.8;}
+        /* 滚动渐入动画 */
+        @keyframes fadeInUp{
+            from{opacity:0;transform:translateY(30px);}
+            to{opacity:1;transform:translateY(0);}
+        }
+        .fade-box{animation:fadeInUp 0.7s ease forwards;opacity:0;}
+        .delay1{animation-delay:0.1s;}
+        .delay2{animation-delay:0.25s;}
+        .delay3{animation-delay:0.4s;}
+        /* 头部封面 */
+        .header{background:linear-gradient(135deg,#ffd6d6,#ffe8e8);padding:40px 20px 30px;text-align:center;}
+        .header h1{font-size:30px;color:#c83c3c;margin-bottom:10px;letter-spacing:2px;}
+        .header .slogan{font-size:15px;color:#888;letter-spacing:1px;}
+        .header .tags{margin-top:15px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+        .header .tag{background:#fff;color:#d04545;padding:5px 14px;border-radius:20px;font-size:13px;box-shadow:0 1px 4px rgba(200,60,60,0.15);}
+        /* 基础信息卡 */
+        .base-info{background:#fff;border-radius:16px;margin:-20px 20px 20px;padding:22px;box-shadow:0 4px 16px rgba(255,150,150,0.2);position:relative;z-index:2;}
+        .base-info h2{color:#d04545;border-left:4px solid #ff7a7a;padding-left:12px;margin-bottom:18px;font-size:20px;}
+        .info-row{display:flex;flex-wrap:wrap;gap:8px 0;}
+        .info-item{width:50%;font-size:15px;color:#555;}
+        .info-item span{color:#999;margin-right:4px;}
+        /* 通用板块 */
+        .section{margin:35px 20px;}
+        .section-title{font-size:22px;color:#c83c3c;text-align:center;margin-bottom:22px;position:relative;letter-spacing:1px;}
+        .section-title::after{content:"";width:50px;height:3px;background:linear-gradient(90deg,#ff9494,#ffb8b8);display:block;margin:10px auto 0;border-radius:2px;}
+        /* 证书板块 */
+        .cert-box{background:#fff;padding:18px;border-radius:14px;box-shadow:0 2px 10px rgba(255,180,180,0.25);}
+        .cert-img{width:100%;border-radius:10px;margin-bottom:16px;}
+        .cert-list{display:flex;flex-wrap:wrap;gap:10px;}
+        .cert-list li{list-style:none;background:#fff5f5;color:#d04545;padding:6px 14px;border-radius:20px;font-size:14px;border:1px solid #ffd0d0;}
+        /* 文字卡片 */
+        .text-card{background:#fff;padding:20px;border-radius:14px;box-shadow:0 2px 10px rgba(255,180,180,0.2);margin-bottom:16px;}
+        .text-card h3{color:#d04545;margin-bottom:12px;font-size:17px;display:flex;align-items:center;}
+        .text-card h3::before{content:"";width:6px;height:18px;background:#ff7a7a;border-radius:3px;margin-right:10px;}
+        .text-card p{font-size:15px;color:#444;text-align:justify;}
+        .text-card ul{padding-left:0;}
+        .text-card li{list-style:none;font-size:15px;color:#444;padding:4px 0 4px 20px;position:relative;}
+        .text-card li::before{content:"✓";color:#ff6b6b;position:absolute;left:0;font-weight:bold;}
+        /* 数据亮点 */
+        .highlight-row{display:flex;justify-content:space-around;text-align:center;margin:20px 0;}
+        .highlight-item .num{font-size:28px;font-weight:bold;color:#c83c3c;}
+        .highlight-item .label{font-size:13px;color:#888;margin-top:4px;}
+
+
+        /* ==========【轮播模块 适配修改｜图片完整显示，不再裁切】========== */
+        /* 轮播外层容器：控制整个轮播板块宽度 */
+        .slide-wrap{
+            overflow:hidden;
+            border-radius:14px;
+            position:relative;
+            box-shadow:0 2px 12px rgba(255,180,180,0.3);
+            max-width:680px;    /* ✅电脑端整体宽度 */
+            width:94%;          /* ✅手机端自适应，左右留边 */
+            margin:0 auto;      /* ✅自动居中 */
+        }
+        /* 轮播总宽度：10张图片固定，禁止修改 */
+        .slide-group{
+            display:flex;
+            width:10*100%;
+            animation:slide 36s linear infinite;
+        }
+        /* 轮播动画：10张图位移-900%，不要改动 */
+        @keyframes slide{
+            0%{transform:translateX(0);}
+            100%{transform:translateX(-900%);} /* ✅公式：-(图片总数-1)*100% */
+        }
+        .slide-item{
+    width:100%;
+    flex-shrink:0;
+    padding:0;              /* 取消内边距，消除图片之间的空白 */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.slide-item img{
+    height:100%;
+    width:auto;
+    max-height:360px;
+    border-radius:0;        /* 取消单张图片圆角，让拼接更自然 */
+    display:block;
+}
+        /* ====================================== */
+
+
+        /* 实拍网格图片（宝宝/锦旗）如需调整大小在这里修改 */
+        .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        .img-grid img{
+            width:100%;
+            border-radius:10px;
+            box-shadow:0 1px 6px rgba(255,180,180,0.3);
+            /* 如需限制网格图片高度，启用下面代码 */
+            /* max-height:320px;
+            object-fit:cover; */
+        }
+        /* 底部联系 */
+        .contact{background:linear-gradient(135deg,#ffd6d6,#ffe8e8);margin-top:45px;padding:35px 20px 40px;text-align:center;}
+        .contact h2{color:#c83c3c;margin-bottom:10px;font-size:22px;}
+        .contact .sub{color:#888;font-size:14px;margin-bottom:18px;}
+        .tel-btn{display:inline-block;background:#c83c3c;color:#fff;padding:12px 36px;border-radius:30px;font-size:18px;font-weight:bold;text-decoration:none;margin:10px 0 20px;box-shadow:0 4px 12px rgba(200,60,60,0.3);}
+        .contact img{width:170px;margin:10px auto 0;display:block;border-radius:8px;}
+        .contact .qr-tip{font-size:13px;color:#888;margin-top:8px;}
+    </style>
+</head>
+<body>
+    <!-- 头部封面 -->
+    <div class="header fade-box">
+        <h1>金牌月嫂 · 李金红</h1>
+        <p class="slogan">十余年深耕母婴护理 · 用心守护每一个月子期</p>
+        <div class="tags">
+            <span class="tag">早产儿护理</span>
+            <span class="tag">双胞胎经验</span>
+            <span class="tag">高级催乳</span>
+            <span class="tag">定制月子餐</span>
+        </div>
+    </div>
+
+    <!-- 基础个人信息 -->
+    <div class="base-info fade-box delay1">
+        <h2>个人档案</h2>
+        <div class="info-row">
+            <div class="info-item"><span>姓名</span>李金红</div>
+            <div class="info-item"><span>年龄</span>43岁</div>
+            <div class="info-item"><span>身高</span>1.60m</div>
+            <div class="info-item"><span>籍贯</span>河北定州</div>
+            <div class="info-item"><span>民族</span>汉族</div>
+            <div class="info-item"><span>学历</span>高中</div>
+        </div>
+    </div>
+
+    <!-- 从业数据亮点 -->
+    <div class="section fade-box delay2">
+        <div class="highlight-row">
+            <div class="highlight-item">
+                <div class="num">10+</div>
+                <div class="label">年从业经验</div>
+            </div>
+            <div class="highlight-item">
+                <div class="num">80+</div>
+                <div class="label">服务宝宝</div>
+            </div>
+            <div class="highlight-item">
+                <div class="num">6项</div>
+                <div class="label">专业证书</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 资质证书 -->
+    <div class="section fade-box delay3">
+        <h2 class="section-title">专业资质</h2>
+        <div class="cert-box">
+            <img class="cert-img" src="img/cert.jpg" alt="金牌月嫂证书">
+            <div class="cert-list">
+                <li>金牌月嫂证书</li>
+                <li>高级母婴护理证</li>
+                <li>催乳师证</li>
+                <li>产后修复证</li>
+                <li>小儿推拿证</li>
+                <li>营养师证</li>
+            </div>
+        </div>
+    </div>
+
+    <!-- 从业经历 -->
+    <div class="section">
+        <h2 class="section-title">从业经历</h2>
+        <div class="text-card">
+            <h3>职业历程</h3>
+            <p>2013年起接触母婴护理，从育儿嫂起步积累宝宝照料经验；2015年正式入行月嫂，2017年考取高级母婴护理证书，深耕行业至今十余年。曾在北京房山等地服务高端客户，累计照料80余名新生儿。</p>
+        </div>
+        <div class="text-card">
+            <h3>特殊宝宝护理经验</h3>
+            <ul>
+                <li>28周极早产儿护理，熟悉早产宝宝喂养、保暖、发育监测全流程</li>
+                <li>33+4周双胞胎宝宝双胎照料经验2个月</li>
+                <li>低体重儿、先心病宝宝及术后特殊患儿专项护理</li>
+                <li>肠胀气、肠绞痛"高需求宝宝"特殊安抚手法</li>
+                <li>胃食管反流宝宝防呛奶抱姿与拍嗝技巧</li>
+            </ul>
+        </div>
+        <div class="text-card">
+            <h3>服务理念</h3>
+            <p>坚持"预防为主、防患未然"，把可能出现的问题想在前面、做在前面。有爱心、有耐心、有责任心，善于沟通、懂得换位思考，为宝宝和产妇打造安全、健康、舒心的月子期。</p>
+        </div>
+    </div>
+
+    <!-- 核心技能 -->
+    <div class="section">
+        <h2 class="section-title">核心护理技能</h2>
+
+        <div class="text-card">
+            <h3>新生儿科学护理</h3>
+            <ul>
+                <li>科学喂养指导，培养宝宝规律作息习惯</li>
+                <li>黄疸监测、体温测量、脐部/眼部/臀部清洁消毒</li>
+                <li>洗澡、抚触、日光浴、主被动操、排气操</li>
+                <li>红臀、湿疹、尿布疹护理与预防</li>
+                <li>海姆立克急救法处理呛奶吐奶</li>
+                <li>肌张力早期干预与左右脑开发启蒙</li>
+                <li>小儿推拿调理腹泻、便秘、轻微感冒</li>
+                <li>早教互动：儿歌、手指谣、情感培养</li>
+            </ul>
+        </div>
+
+        <div class="text-card">
+            <h3>产妇产后康复</h3>
+            <ul>
+                <li>生理性涨奶提前干预，乳腺疏通、乳汁调理</li>
+                <li>乳头凹陷、短平等疑难乳房问题矫正指导</li>
+                <li>顺产/剖腹产伤口消毒与产后卫生护理</li>
+                <li>正确哺乳姿势指导，降低喂养疼痛</li>
+                <li>产后心理疏导，情绪陪伴与调节</li>
+            </ul>
+        </div>
+
+        <div class="text-card">
+            <h3>定制月子餐</h3>
+            <ul>
+                <li>按体质、口味、恢复阶段分阶段定制食谱</li>
+                <li>精通滋补煲汤、花式面点、高级食材烹饪</li>
+                <li>营养均衡、粗细搭配，兼顾美味与产后修复</li>
+                <li>下奶餐、减脂餐、调理餐按需调配</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 月子餐轮播 -->
+    <div class="section">
+        <h2 class="section-title">月子餐作品</h2>
+        <div class="slide-wrap">
+            <div class="slide-group">
+                <div class="slide-item"><img src="img/banner1.jpg" alt="月子餐实拍"></div>
+                <div class="slide-item"><img src="img/banner2.jpg" alt="月子餐实拍"></div>
+                <div class="slide-item"><img src="img/banner3.jpg" alt="月子餐实拍"></div>
+                <div class="slide-item"><img src="img/banner4.jpg" alt="月子餐实拍"></div>
+                <div class="slide-item"><img src="img/banner5.jpg" alt="月子餐实拍"></div>
+                <div class="slide-item"><img src="img/banner6.jpg" alt="月子餐实拍"></div>
+                <div class="slide-item"><img src="img/banner7.jpg" alt="月子餐实拍"></div>
+                <div class="slide-item"><img src="img/banner8.jpg" alt="月子餐实拍"></div>
+                <div class="slide-item"><img src="img/banner9.jpg" alt="月子餐实拍"></div>
+		        <div class="slide-item"><img src="img/banner10.jpg" alt="月子餐实拍"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 服务实拍 & 锦旗 -->
+    <div class="section">
+        <h2 class="section-title">服务实拍 & 客户好评</h2>
+        <div class="img-grid">
+            <img src="img/kid1.jpg" alt="宝宝日常照料">
+            <img src="img/kid2.jpg" alt="宝宝日常照料">
+            <img src="img/flag1.jpg" alt="客户赠送锦旗">
+            <img src="img/flag2.jpg" alt="客户赠送锦旗">
+        </div>
+        <div class="text-card" style="margin-top:16px;text-align:center;">
+            <p style="font-style:italic;color:#666;">"耐心负责好月嫂，情真意切似家人"<br>多位宝妈赠送锦旗，口碑相传，专业靠谱</p>
+        </div>
+    </div>
+
+    <!-- 底部联系 -->
+    <div class="contact">
+        <h2>预约咨询</h2>
+        <p class="sub">金牌月嫂李金红 · 档期有限，提前预约</p>
+        <a href="tel:15284332465" class="tel-btn">📞 152-8433-2465</a>
+        <p class="qr-tip">扫码添加微信，沟通档期与服务详情</p>
+        <img src="img/wechat.png" alt="微信二维码">
+    </div>
+</body>
+</html>
