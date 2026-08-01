@@ -32,11 +32,6 @@
         .section{margin:35px 20px;}
         .section-title{font-size:22px;color:#c83c3c;text-align:center;margin-bottom:22px;position:relative;letter-spacing:1px;}
         .section-title::after{content:"";width:50px;height:3px;background:linear-gradient(90deg,#ff9494,#ffb8b8);display:block;margin:10px auto 0;border-radius:2px;}
-        /* 证书板块 */
-        .cert-box{background:#fff;padding:18px;border-radius:14px;box-shadow:0 2px 10px rgba(255,180,180,0.25);}
-        .cert-img{width:100%;border-radius:10px;margin-bottom:16px;}
-        .cert-list{display:flex;flex-wrap:wrap;gap:10px;}
-        .cert-list li{list-style:none;background:#fff5f5;color:#d04545;padding:6px 14px;border-radius:20px;font-size:14px;border:1px solid #ffd0d0;}
         /* 文字卡片 */
         .text-card{background:#fff;padding:20px;border-radius:14px;box-shadow:0 2px 10px rgba(255,180,180,0.2);margin-bottom:16px;}
         .text-card h3{color:#d04545;margin-bottom:12px;font-size:17px;display:flex;align-items:center;}
@@ -50,68 +45,112 @@
         .highlight-item .num{font-size:28px;font-weight:bold;color:#c83c3c;}
         .highlight-item .label{font-size:13px;color:#888;margin-top:4px;}
 
-
-        /* ==========【轮播模块 适配修改｜图片完整显示，不再裁切】========== */
-        /* 轮播外层容器：控制整个轮播板块宽度 */
+        /* ==========通用轮播样式（证书、月子餐共用）========== */
         .slide-wrap{
             overflow:hidden;
             border-radius:14px;
             position:relative;
             box-shadow:0 2px 12px rgba(255,180,180,0.3);
-            max-width:680px;    /* ✅电脑端整体宽度 */
-            width:94%;          /* ✅手机端自适应，左右留边 */
-            margin:0 auto;      /* ✅自动居中 */
+            max-width:680px;
+            width:94%;
+            margin:0 auto;
         }
-        /* 轮播总宽度：10张图片固定，禁止修改 */
         .slide-group{
             display:flex;
-            width:10*100%;
-            animation:slide 36s linear infinite;
-        }
-        /* 轮播动画：10张图位移-900%，不要改动 */
-        @keyframes slide{
-            0%{transform:translateX(0);}
-            100%{transform:translateX(-900%);} /* ✅公式：-(图片总数-1)*100% */
         }
         .slide-item{
-    width:100%;
-    flex-shrink:0;
-    padding:0;              /* 取消内边距，消除图片之间的空白 */
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.slide-item img{
-    height:100%;
-    width:auto;
-    max-height:360px;
-    border-radius:0;        /* 取消单张图片圆角，让拼接更自然 */
-    display:block;
-}
+            width:100%;
+            flex-shrink:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .slide-item img{
+            height:100%;
+            width:auto;
+            max-height:360px;
+            display:block;
+            cursor:pointer;
+        }
+        /* 移入暂停动画 */
+        .slide-wrap:hover .slide-group{
+            animation-play-state:paused !important;
+        }
+        /* 6张证书轮播动画 */
+        @keyframes slideCert{
+            0%{transform:translateX(0);}
+            100%{transform:translateX(-500%);}
+        }
+        /* 10张月子餐轮播动画 */
+        @keyframes slideFood{
+            0%{transform:translateX(0);}
+            100%{transform:translateX(-900%);}
+        }
+        /* 证书轮播容器宽度 */
+        .slide-cert .slide-group{
+            width:6*100%;
+            animation:slideCert 30s linear infinite;
+        }
+        /* 月子餐轮播容器宽度 */
+        .slide-food .slide-group{
+            width:10*100%;
+            animation:slideFood 36s linear infinite;
+        }
         /* ====================================== */
 
-
-        /* 实拍网格图片（宝宝/锦旗）如需调整大小在这里修改 */
+        /* 实拍网格图片（宝宝/锦旗） */
         .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
         .img-grid img{
             width:100%;
             border-radius:10px;
             box-shadow:0 1px 6px rgba(255,180,180,0.3);
-            /* 如需限制网格图片高度，启用下面代码 */
-            /* max-height:320px;
-            object-fit:cover; */
+            cursor:pointer;
         }
         /* 底部联系 */
         .contact{background:linear-gradient(135deg,#ffd6d6,#ffe8e8);margin-top:45px;padding:35px 20px 40px;text-align:center;}
         .contact h2{color:#c83c3c;margin-bottom:10px;font-size:22px;}
         .contact .sub{color:#888;font-size:14px;margin-bottom:18px;}
         .tel-btn{display:inline-block;background:#c83c3c;color:#fff;padding:12px 36px;border-radius:30px;font-size:18px;font-weight:bold;text-decoration:none;margin:10px 0 20px;box-shadow:0 4px 12px rgba(200,60,60,0.3);}
-        .contact img{width:170px;margin:10px auto 0;display:block;border-radius:8px;}
+        .contact img{width:170px;margin:10px auto 0;display:block;border-radius:8px;cursor:pointer;}
         .contact .qr-tip{font-size:13px;color:#888;margin-top:8px;}
+
+        /* ==========图片放大弹窗样式========== */
+        .img-modal{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.85);
+            display:none;
+            align-items:center;
+            justify-content:center;
+            z-index:9999;
+            padding:15px;
+        }
+        .img-modal.show{
+            display:flex;
+        }
+        .img-modal img{
+            max-width:100%;
+            max-height:92vh;
+            border-radius:8px;
+        }
+        .img-modal .close-tip{
+            position:absolute;
+            color:#fff;
+            bottom:30px;
+            font-size:14px;
+        }
     </style>
 </head>
 <body>
+    <!-- 大图弹窗 -->
+    <div class="img-modal" id="modal">
+        <img id="modalImg" src="" alt="大图预览">
+        <div class="close-tip">点击任意位置关闭图片</div>
+    </div>
+
     <!-- 头部封面 -->
     <div class="header fade-box">
         <h1>金牌月嫂 · 李金红</h1>
@@ -155,18 +194,27 @@
         </div>
     </div>
 
-    <!-- 资质证书 -->
+    <!-- 资质证书【轮播区域】 -->
     <div class="section fade-box delay3">
-        <h2 class="section-title">专业资质</h2>
-        <div class="cert-box">
-            <img class="cert-img" src="img/cert.jpg" alt="金牌月嫂证书">
-            <div class="cert-list">
-                <li>金牌月嫂证书</li>
-                <li>高级母婴护理证</li>
-                <li>催乳师证</li>
-                <li>产后修复证</li>
-                <li>小儿推拿证</li>
-                <li>营养师证</li>
+        <h2 class="section-title">专业资质证书</h2>
+        <div class="slide-wrap slide-cert">
+            <div class="slide-group">
+                <div class="slide-item"><img src="img/cert1.jpg" alt="月嫂证书"></div>
+                <div class="slide-item"><img src="img/cert2.jpg" alt="母婴护理证书"></div>
+                <div class="slide-item"><img src="img/cert3.jpg" alt="催乳师证书"></div>
+                <div class="slide-item"><img src="img/cert4.jpg" alt="产后修复证书"></div>
+                <div class="slide-item"><img src="img/cert5.jpg" alt="小儿推拿证书"></div>
+                <div class="slide-item"><img src="img/cert6.jpg" alt="营养师证书"></div>
+            </div>
+        </div>
+        <div style="margin-top:16px;text-align:center;">
+            <div class="cert-list" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+                <li style="list-style:none;background:#fff5f5;color:#d04545;padding:6px 14px;border-radius:20px;font-size:14px;border:1px solid #ffd0d0;">金牌月嫂证书</li>
+                <li style="list-style:none;background:#fff5f5;color:#d04545;padding:6px 14px;border-radius:20px;font-size:14px;border:1px solid #ffd0d0;">高级母婴护理证</li>
+                <li style="list-style:none;background:#fff5f5;color:#d04545;padding:6px 14px;border-radius:20px;font-size:14px;border:1px solid #ffd0d0;">催乳师证</li>
+                <li style="list-style:none;background:#fff5f5;color:#d04545;padding:6px 14px;border-radius:20px;font-size:14px;border:1px solid #ffd0d0;">产后修复证</li>
+                <li style="list-style:none;background:#fff5f5;color:#d04545;padding:6px 14px;border-radius:20px;font-size:14px;border:1px solid #ffd0d0;">小儿推拿证</li>
+                <li style="list-style:none;background:#fff5f5;color:#d04545;padding:6px 14px;border-radius:20px;font-size:14px;border:1px solid #ffd0d0;">营养师证</li>
             </div>
         </div>
     </div>
@@ -237,7 +285,7 @@
     <!-- 月子餐轮播 -->
     <div class="section">
         <h2 class="section-title">月子餐作品</h2>
-        <div class="slide-wrap">
+        <div class="slide-wrap slide-food">
             <div class="slide-group">
                 <div class="slide-item"><img src="img/banner1.jpg" alt="月子餐实拍"></div>
                 <div class="slide-item"><img src="img/banner2.jpg" alt="月子餐实拍"></div>
@@ -275,5 +323,23 @@
         <p class="qr-tip">扫码添加微信，沟通档期与服务详情</p>
         <img src="img/wechat.png" alt="微信二维码">
     </div>
+
+<script>
+// 图片弹窗功能
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+// 获取所有图片
+const allImages = document.querySelectorAll('img');
+allImages.forEach(img=>{
+    img.onclick = function(){
+        modalImg.src = this.src;
+        modal.classList.add('show');
+    }
+})
+// 点击遮罩关闭大图
+modal.onclick = function(){
+    modal.classList.remove('show');
+}
+</script>
 </body>
 </html>
